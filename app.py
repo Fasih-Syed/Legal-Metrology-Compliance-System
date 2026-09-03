@@ -67,58 +67,86 @@ if uploaded_file is not None:
             # 1. PREPROCESSING
             # ------------------------------------------
 
+            st.write("1️⃣ Starting preprocessing...")
+
             processed_image, _ = preprocess_image(
                 uploaded_file
             )
+
+            st.write("✅ Preprocessing complete")
 
             # ------------------------------------------
             # 2. OCR
             # ------------------------------------------
 
+            st.write("2️⃣ Starting OCR...")
+
             ocr_text = extract_text(
                 processed_image
             )
+
+            st.write("✅ OCR complete")
 
             # ------------------------------------------
             # 3. DECLARATION EXTRACTION
             # ------------------------------------------
 
+            st.write("3️⃣ Extracting declarations...")
+
             declarations = extract_declarations(
                 ocr_text
             )
 
+            st.write("✅ Declaration extraction complete")
             # ------------------------------------------
             # 4. COMPLIANCE CHECK
             # ------------------------------------------
 
+            st.write("4️⃣ Checking compliance...")
+
             compliance_result = check_required_declarations(
-    declarations
-)
+                declarations
+            )
+
+            st.write("✅ Compliance check complete")
             
 
             # ------------------------------------------
             # 5. VIOLATION DETECTION
             # ------------------------------------------
 
+            st.write("5️⃣ Detecting violations...")
+
             violation_result = detect_violations(
                 compliance_result
             )
+        
+
+            st.write("✅ Violation detection complete")
 
             # ------------------------------------------
             # 6. IMAGE QUALITY
             # ------------------------------------------
 
+            st.write("6️⃣ Checking image quality...")
+
             image_quality = calculate_image_quality(
                 processed_image
             )
 
-                      # ------------------------------------------
+            st.write("✅ Image quality complete")
+
+            # ------------------------------------------
             # 7. QR ANALYSIS
             # ------------------------------------------
+
+            st.write("7️⃣ Scanning QR...")
 
             qr_result = scan_qr_code(
                 processed_image
             )
+
+            st.write("✅ QR scan complete")
 
         # ------------------------------------------
         # INSPECTION REPORT
